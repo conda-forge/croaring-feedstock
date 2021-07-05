@@ -1,6 +1,6 @@
 {% set name = "CRoaring" %}
-{% set version = "0.2.66" %}
-{% set sha256 = "df98bd8f6ff09097ada529a004af758ff4d33faf6a06fadf8fad9a6533afc241" %}
+{% set version = "0.3.2" %}
+{% set sha256 = "42f670c132be6cd2bb185175caf22ffdb3042c7c4f3aadaf30579460226ab455" %}
 
 package:
   name: {{ name|lower }}
@@ -19,7 +19,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}    
+    - {{ compiler('cxx') }}
     - cmake
 
 test:
