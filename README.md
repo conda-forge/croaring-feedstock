@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/croaring-feedst
 
 Home: https://github.com/RoaringBitmap/CRoaring
 
-Package license: Apache 2.0
+Package license: Apache-2.0
 
 Summary: Portable Roaring bitmaps in C (and C++) with full support for your favorite compiler (GNU GCC, LLVM's clang, Visual Studio).
 Included in the Awesome C list of open source C software.
@@ -186,5 +186,5 @@ Feedstock Maintainers
 =====================
 
 * [@bdice](https://github.com/bdice/)
-* [@fabio-cumbo](https://github.com/fabio-cumbo/)
+* [@cumbof](https://github.com/cumbof/)
 
