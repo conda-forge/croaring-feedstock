@@ -13,7 +13,7 @@ fi
 
 mkdir -p build
 cd build
-cmake \
+cmake -G "Ninja" \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_INSTALL_LIBDIR=${PREFIX}/lib \
     -DROARING_DISABLE_NATIVE=ON \

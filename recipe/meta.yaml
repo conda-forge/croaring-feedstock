@@ -21,7 +21,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ stdlib('c') }}
     - cmake <4
-    - make  # [unix]
+    - ninja
 
 test:
   commands:
