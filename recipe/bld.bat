@@ -1,4 +1,4 @@
-@echo off
+@echo on
 setlocal enabledelayedexpansion
 
 set CPLUS_INCLUDE_PATH=%PREFIX%\include
