@@ -20,6 +20,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
 
 test:
@@ -53,8 +54,7 @@ test:
 
 about:
   home: https://github.com/RoaringBitmap/CRoaring
-  license: Apache 2.0
-  license_family: APACHE
+  license: Apache-2.0
   license_file: LICENSE
   summary: |
     Portable Roaring bitmaps in C (and C++) with full support for your favorite compiler (GNU GCC, LLVM's clang, Visual Studio).
@@ -63,4 +63,4 @@ about:
 extra:
   recipe-maintainers:
     - bdice
-    - fabio-cumbo
+    - cumbof
