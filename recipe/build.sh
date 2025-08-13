@@ -16,6 +16,7 @@ cd build
 cmake \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_INSTALL_LIBDIR=${PREFIX}/lib \
+    -DROARING_DISABLE_NATIVE=ON \
     ${SRC_DIR}
 
 make install
