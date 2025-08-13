@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('croaring', max_pin='x.x.x') }}
@@ -19,7 +19,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}    
+    - {{ compiler('cxx') }}
     - cmake
 
 test:
@@ -57,7 +57,7 @@ about:
   license_family: APACHE
   license_file: LICENSE
   summary: |
-    Portable Roaring bitmaps in C (and C++) with full support for your favorite compiler (GNU GCC, LLVM's clang, Visual Studio). 
+    Portable Roaring bitmaps in C (and C++) with full support for your favorite compiler (GNU GCC, LLVM's clang, Visual Studio).
     Included in the Awesome C list of open source C software.
 
 extra:
