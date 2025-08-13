@@ -20,4 +20,9 @@ cmake \
     ${SRC_DIR}
 
 make install
-make test
+
+if [[ "${BUILD_PLATFORM}" == "osx-64" && "${HOST_PLATFORM}" == "osx-arm64" ]]; then
+    echo "Skipping tests, osx-arm64 tests are not runnable on osx-64"
+else
+    make test
+fi
