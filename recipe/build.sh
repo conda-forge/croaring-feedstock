@@ -19,10 +19,10 @@ cmake -G "Ninja" \
     -DROARING_DISABLE_NATIVE=ON \
     ${SRC_DIR}
 
-make install
+cmake --build . --target install
 
 if [[ "${BUILD_PLATFORM}" == "osx-64" && "${HOST_PLATFORM}" == "osx-arm64" ]]; then
     echo "Skipping tests, osx-arm64 tests are not runnable on osx-64"
 else
-    make test
+    cmake --build . --target test
 fi
