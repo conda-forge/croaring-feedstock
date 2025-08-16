@@ -21,7 +21,7 @@ cmake -G "Ninja" \
 
 cmake --build . --target install
 
-if [[ "${BUILD_PLATFORM}" == "osx-64" && "${HOST_PLATFORM}" == "osx-arm64" ]]; then
+if [[ "${build_platform}" == "osx-64" && "${target_platform}" == "osx-arm64" ]]; then
     echo "Skipping tests, osx-arm64 tests are not runnable on osx-64"
 else
     cmake --build . --target test
