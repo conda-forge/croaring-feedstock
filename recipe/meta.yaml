@@ -71,11 +71,11 @@ test:
     - if not exist %LIBRARY_INC%\\roaring\\containers\\run.h                 # [win]
     - if not exist %LIBRARY_INC%\\roaring\\misc\\configreport.h              # [win]
 
-    # shared
+    # shared libraries
     - test -f $PREFIX/lib/libroaring${SHLIB_EXT}      # [unix]
     - if not exist %LIBRARY_BIN%\\roaring.dll exit 1  # [win]
 
-    # static
+    # static libraries
     - if not exist %LIBRARY_LIB%\\roaring.lib exit 1  # [win]
 
 about:
