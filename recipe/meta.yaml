@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   run_exports:
     - {{ pin_subpackage('croaring', max_pin='x.x.x') }}
 
@@ -26,31 +26,57 @@ requirements:
 test:
   commands:
     # headers
-    - test -f $PREFIX/include/roaring/array_util.h                                   # [unix]
-    - test -f $PREFIX/include/roaring/bitset_util.h                                  # [unix]
-    - test -f $PREFIX/include/roaring/portability.h                                  # [unix]
-    - test -f $PREFIX/include/roaring/roaring_array.h                                # [unix]
-    - test -f $PREFIX/include/roaring/roaring_types.h                                # [unix]
-    - test -f $PREFIX/include/roaring/roaring_version.h                              # [unix]
-    - test -f $PREFIX/include/roaring/roaring.h                                      # [unix]
-    - test -f $PREFIX/include/roaring/utilasm.h                                      # [unix]
-    - test -f $PREFIX/include/roaring/containers/array.h                             # [unix]
-    - test -f $PREFIX/include/roaring/containers/bitset.h                            # [unix]
-    - test -f $PREFIX/include/roaring/containers/containers.h                        # [unix]
-    - test -f $PREFIX/include/roaring/containers/convert.h                           # [unix]
-    - test -f $PREFIX/include/roaring/containers/mixed_andnot.h                      # [unix]
-    - test -f $PREFIX/include/roaring/containers/mixed_equal.h                       # [unix]
-    - test -f $PREFIX/include/roaring/containers/mixed_intersection.h                # [unix]
-    - test -f $PREFIX/include/roaring/containers/mixed_negation.h                    # [unix]
-    - test -f $PREFIX/include/roaring/containers/mixed_subset.h                      # [unix]
-    - test -f $PREFIX/include/roaring/containers/mixed_union.h                       # [unix]
-    - test -f $PREFIX/include/roaring/containers/mixed_xor.h                         # [unix]
-    - test -f $PREFIX/include/roaring/containers/perfparameters.h                    # [unix]
-    - test -f $PREFIX/include/roaring/containers/run.h                               # [unix]
-    - test -f $PREFIX/include/roaring/misc/configreport.h                            # [unix]
+    - test -f $PREFIX/include/roaring/array_util.h                     # [unix]
+    - test -f $PREFIX/include/roaring/bitset_util.h                    # [unix]
+    - test -f $PREFIX/include/roaring/portability.h                    # [unix]
+    - test -f $PREFIX/include/roaring/roaring_array.h                  # [unix]
+    - test -f $PREFIX/include/roaring/roaring_types.h                  # [unix]
+    - test -f $PREFIX/include/roaring/roaring_version.h                # [unix]
+    - test -f $PREFIX/include/roaring/roaring.h                        # [unix]
+    - test -f $PREFIX/include/roaring/utilasm.h                        # [unix]
+    - test -f $PREFIX/include/roaring/containers/array.h               # [unix]
+    - test -f $PREFIX/include/roaring/containers/bitset.h              # [unix]
+    - test -f $PREFIX/include/roaring/containers/containers.h          # [unix]
+    - test -f $PREFIX/include/roaring/containers/convert.h             # [unix]
+    - test -f $PREFIX/include/roaring/containers/mixed_andnot.h        # [unix]
+    - test -f $PREFIX/include/roaring/containers/mixed_equal.h         # [unix]
+    - test -f $PREFIX/include/roaring/containers/mixed_intersection.h  # [unix]
+    - test -f $PREFIX/include/roaring/containers/mixed_negation.h      # [unix]
+    - test -f $PREFIX/include/roaring/containers/mixed_subset.h        # [unix]
+    - test -f $PREFIX/include/roaring/containers/mixed_union.h         # [unix]
+    - test -f $PREFIX/include/roaring/containers/mixed_xor.h           # [unix]
+    - test -f $PREFIX/include/roaring/containers/perfparameters.h      # [unix]
+    - test -f $PREFIX/include/roaring/containers/run.h                 # [unix]
+    - test -f $PREFIX/include/roaring/misc/configreport.h              # [unix]
+    - if not exist %LIBRARY_INC%\\roaring\\array_util.h                      # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\bitset_util.h                     # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\portability.h                     # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\roaring_array.h                   # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\roaring_types.h                   # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\roaring_version.h                 # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\roaring.h                         # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\utilasm.h                         # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\array.h               # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\bitset.h              # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\containers.h          # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\convert.h             # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\mixed_andnot.h        # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\mixed_equal.h         # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\mixed_intersection.h  # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\mixed_negation.h      # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\mixed_subset.h        # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\mixed_union.h         # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\mixed_xor.h           # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\perfparameters.h      # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\containers\\run.h                 # [win]
+    - if not exist %LIBRARY_INC%\\roaring\\misc\\configreport.h              # [win]
 
     # shared
-    - test -f $PREFIX/lib/libroaring${SHLIB_EXT}                                     # [unix]
+    - test -f $PREFIX/lib/libroaring${SHLIB_EXT}      # [unix]
+    - if not exist %LIBRARY_BIN%\\roaring.dll exit 1  # [win]
+
+    # static
+    - if not exist %LIBRARY_LIB%\\roaring.lib exit 1  # [win]
 
 about:
   home: https://github.com/RoaringBitmap/CRoaring
