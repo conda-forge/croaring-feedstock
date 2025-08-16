@@ -13,10 +13,16 @@ fi
 
 mkdir -p build
 cd build
-cmake \
+cmake -G "Ninja" \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_INSTALL_LIBDIR=${PREFIX}/lib \
+    -DROARING_DISABLE_NATIVE=ON \
     ${SRC_DIR}
 
-make install
-make test
+cmake --build . --target install
+
+if [[ "${build_platform}" == "osx-64" && "${target_platform}" == "osx-arm64" ]]; then
+    echo "Skipping tests, osx-arm64 tests are not runnable on osx-64"
+else
+    cmake --build . --target test
+fi
