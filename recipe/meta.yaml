@@ -72,7 +72,7 @@ test:
     - "if not exist %LIBRARY_INC%\\roaring\\utilasm.h exit 1"                         # [win]
 
     # shared libraries
-    - test -f $PREFIX/lib/libroaring${SHLIB_EXT}      # [unix]
+    - test -f $PREFIX/lib/libroaring${SHLIB_EXT}        # [unix]
     - "if not exist %LIBRARY_BIN%\\roaring.dll exit 1"  # [win]
 
     # static libraries
