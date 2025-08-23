@@ -16,6 +16,7 @@ cd build
 cmake -G "Ninja" \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_INSTALL_LIBDIR=${PREFIX}/lib \
+    -DBUILD_SHARED_LIBS=ON \
     -DROARING_DISABLE_NATIVE=ON \
     ${SRC_DIR}
 
