@@ -11,7 +11,6 @@ cd build
 REM Configure with cmake
 cmake -G "Ninja" ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-    -DCMAKE_INSTALL_LIBDIR=%LIBRARY_LIB% ^
     -DBUILD_SHARED_LIBS=ON ^
     -DROARING_DISABLE_NATIVE=ON ^
     %SRC_DIR%
