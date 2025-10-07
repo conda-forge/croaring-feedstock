@@ -11,8 +11,11 @@ if [ `uname` == "Darwin" ]; then
     rm ${SRC_DIR}/tests/cpp_unit.cpp2
 fi
 
+# Create build directory
 mkdir -p build
 cd build
+
+# Configure with cmake
 cmake -G "Ninja" \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_INSTALL_LIBDIR=${PREFIX}/lib \
@@ -20,8 +23,10 @@ cmake -G "Ninja" \
     -DROARING_DISABLE_NATIVE=ON \
     ${SRC_DIR}
 
+# Build and install
 cmake --build . --target install
 
+# Run tests
 if [[ "${build_platform}" == "osx-64" && "${target_platform}" == "osx-arm64" ]]; then
     echo "Skipping tests, osx-arm64 tests are not runnable on osx-64"
 else
