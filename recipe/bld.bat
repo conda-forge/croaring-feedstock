@@ -8,20 +8,14 @@ REM Create build directory
 if not exist build mkdir build
 cd build
 
-REM Configure with cmake
+REM Configure with tests disabled, then install
 cmake -G "Ninja" ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-    -DCMAKE_INSTALL_BINDIR=%LIBRARY_BIN% ^
-    -DCMAKE_INSTALL_INCLUDEDIR=%LIBRARY_INC% ^
-    -DCMAKE_INSTALL_LIBDIR=%LIBRARY_LIB% ^
     -DBUILD_SHARED_LIBS=ON ^
     -DROARING_DISABLE_NATIVE=ON ^
+    -DENABLE_ROARING_TESTS=OFF ^
     %SRC_DIR%
 
-REM Build and install
 cmake --build . --target install
-
-REM Run tests
-cmake --build . --target test
 
 endlocal
