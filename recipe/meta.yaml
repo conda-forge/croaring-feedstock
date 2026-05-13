@@ -1,6 +1,6 @@
 {% set name = "CRoaring" %}
-{% set version = "4.6.1" %}
-{% set sha256 = "f9240cd0597f9918aab476cbc6b64c114f89ce296b2baf79c208142cfbd3cbc5" %}
+{% set version = "4.7.0" %}
+{% set sha256 = "ddf61da01627904f5277becf833568b26853203e74292bebb90f49dc093adf02" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('croaring', max_pin='x.x.x') }}
 
