@@ -1,6 +1,6 @@
 {% set name = "CRoaring" %}
-{% set version = "5.1.0" %}
-{% set sha256 = "81ea587c658bf7ba3394fa1bc0a3847e24f77228cb7d7df6f54c22244b346772" %}
+{% set version = "5.1.1" %}
+{% set sha256 = "baedea962cd8570487de4739fb09d265ae11afdb415a53caa867b2eabf86ec29" %}
 
 package:
   name: {{ name|lower }}
